@@ -20,7 +20,7 @@ namespace HumanRecognition
         private void frmPredict_Load(object sender, EventArgs e)
         {
             listviewImages.View = View.Details;
-            listviewImages.Columns.Add = 
+            listviewImages.Columns.Add =
         }
     }
 }
