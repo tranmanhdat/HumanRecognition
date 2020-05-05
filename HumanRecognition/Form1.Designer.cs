@@ -41,6 +41,7 @@
             this.btnPredict.TabIndex = 0;
             this.btnPredict.Text = "Predict";
             this.btnPredict.UseVisualStyleBackColor = true;
+            this.btnPredict.Click += new System.EventHandler(this.btnPredict_Click);
             // 
             // btnAdd
             // 

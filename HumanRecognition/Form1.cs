@@ -16,5 +16,11 @@ namespace HumanRecognition
         {
             InitializeComponent();
         }
+
+        private void btnPredict_Click(object sender, EventArgs e)
+        {
+            frmPredict frmPredict = new frmPredict();
+            frmPredict.Show();
+        }
     }
 }
