@@ -36,10 +36,9 @@
             // 
             // btnSelectimage
             // 
-            this.btnSelectimage.Location = new System.Drawing.Point(16, 15);
-            this.btnSelectimage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectimage.Location = new System.Drawing.Point(12, 12);
             this.btnSelectimage.Name = "btnSelectimage";
-            this.btnSelectimage.Size = new System.Drawing.Size(155, 48);
+            this.btnSelectimage.Size = new System.Drawing.Size(116, 39);
             this.btnSelectimage.TabIndex = 0;
             this.btnSelectimage.Text = "Select image";
             this.btnSelectimage.UseVisualStyleBackColor = true;
@@ -48,18 +47,16 @@
             // flowLayoutImages
             // 
             this.flowLayoutImages.AutoScroll = true;
-            this.flowLayoutImages.Location = new System.Drawing.Point(16, 70);
-            this.flowLayoutImages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutImages.Location = new System.Drawing.Point(12, 57);
             this.flowLayoutImages.Name = "flowLayoutImages";
-            this.flowLayoutImages.Size = new System.Drawing.Size(865, 558);
+            this.flowLayoutImages.Size = new System.Drawing.Size(500, 453);
             this.flowLayoutImages.TabIndex = 1;
             // 
             // btnPredict
             // 
-            this.btnPredict.Location = new System.Drawing.Point(899, 15);
-            this.btnPredict.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPredict.Location = new System.Drawing.Point(674, 12);
             this.btnPredict.Name = "btnPredict";
-            this.btnPredict.Size = new System.Drawing.Size(155, 48);
+            this.btnPredict.Size = new System.Drawing.Size(116, 39);
             this.btnPredict.TabIndex = 2;
             this.btnPredict.Text = "Predict";
             this.btnPredict.UseVisualStyleBackColor = true;
@@ -67,22 +64,23 @@
             // 
             // txbResult
             // 
-            this.txbResult.Location = new System.Drawing.Point(899, 70);
+            this.txbResult.Enabled = false;
+            this.txbResult.Location = new System.Drawing.Point(517, 57);
+            this.txbResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbResult.Multiline = true;
             this.txbResult.Name = "txbResult";
-            this.txbResult.Size = new System.Drawing.Size(156, 558);
+            this.txbResult.Size = new System.Drawing.Size(275, 454);
             this.txbResult.TabIndex = 3;
             // 
             // frmPredict
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 642);
+            this.ClientSize = new System.Drawing.Size(800, 522);
             this.Controls.Add(this.txbResult);
             this.Controls.Add(this.btnPredict);
             this.Controls.Add(this.flowLayoutImages);
             this.Controls.Add(this.btnSelectimage);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPredict";

@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,13 +96,17 @@ namespace HumanRecognition
 
         private void btnPredict_Click(object sender, EventArgs e)
         {
-            var client = new RestClient("192.168.1.109:8000/predict");
+            var client = new RestClient("http://192.168.1.109:8000/predict");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "multipart/form-data");
-            request.AddFile("", "1.jpg");
+            foreach(String path in imagePath)
+            {
+                request.AddFile("file", path);
+            }
             IRestResponse response = client.Execute(request);
             txbResult.Text = response.Content;
+            //dynamic stuff = JObject.Parse(response.Content);
         }
     }
 }
