@@ -1,8 +1,11 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Security;
 using System.Text;
@@ -13,6 +16,7 @@ namespace HumanRecognition
 {
     public partial class frmPredict : Form
     {
+        List<string> imagePath = new List<string>();
         public frmPredict()
         {
             InitializeComponent();
@@ -35,15 +39,15 @@ namespace HumanRecognition
                 {
                     try
                     {
+                        imagePath.Add(file);
                         PictureBox pb = new PictureBox();
                         pb.BackgroundImageLayout = ImageLayout.Stretch;
                         pb.SizeMode = PictureBoxSizeMode.AutoSize;
                         Image loadedImage = Image.FromFile(file);
+                        loadedImage = this.ResizeImage(loadedImage, 500, 500);
                         pb.Height = loadedImage.Height;
-                        //pb.Height = 500;
                         pb.Width = loadedImage.Width;
-                        //pb.Width = 500;
-                        pb.Image = loadedImage;
+                        pb.Image = (Image)loadedImage;
                         flowLayoutImages.Controls.Add(pb);
                     }
                     catch (SecurityException ex)
@@ -63,6 +67,41 @@ namespace HumanRecognition
                     }
                 }
             }
+        }
+        public  Bitmap ResizeImage(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
+        }
+
+        private void btnPredict_Click(object sender, EventArgs e)
+        {
+            var client = new RestClient("192.168.1.109:8000/predict");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "multipart/form-data");
+            request.AddFile("", "1.jpg");
+            IRestResponse response = client.Execute(request);
+            txbResult.Text = response.Content;
         }
     }
 }

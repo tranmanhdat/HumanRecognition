@@ -1,6 +1,6 @@
 ﻿namespace HumanRecognition
 {
-    partial class Form1
+    partial class main
     {
         /// <summary>
         /// Required designer variable.
@@ -35,9 +35,10 @@
             // 
             // btnPredict
             // 
-            this.btnPredict.Location = new System.Drawing.Point(13, 13);
+            this.btnPredict.Location = new System.Drawing.Point(17, 16);
+            this.btnPredict.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPredict.Name = "btnPredict";
-            this.btnPredict.Size = new System.Drawing.Size(75, 23);
+            this.btnPredict.Size = new System.Drawing.Size(100, 28);
             this.btnPredict.TabIndex = 0;
             this.btnPredict.Text = "Predict";
             this.btnPredict.UseVisualStyleBackColor = true;
@@ -45,30 +46,35 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(109, 12);
+            this.btnAdd.Location = new System.Drawing.Point(145, 15);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(204, 13);
+            this.btnDelete.Location = new System.Drawing.Point(272, 16);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(100, 28);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 75);
+            this.ClientSize = new System.Drawing.Size(499, 92);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnPredict);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "HumanRecognition";
             this.ResumeLayout(false);

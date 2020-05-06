@@ -10,17 +10,20 @@ using System.Windows.Forms;
 
 namespace HumanRecognition
 {
-    public partial class Form1 : Form
+    public partial class frmDelete : Form
     {
-        public Form1()
+        public frmDelete()
         {
             InitializeComponent();
         }
 
-        private void btnPredict_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            frmPredict frmPredict = new frmPredict();
-            frmPredict.Show();
+            int id = 0;
+            if (!int.TryParse(txtID.Text, out id))
+            {
+                // call delete here
+            }
         }
     }
 }
