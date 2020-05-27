@@ -25,7 +25,8 @@ namespace HumanRecognition
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            AddPerson addPerson = new AddPerson();
+            addPerson.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -33,5 +34,16 @@ namespace HumanRecognition
             frmDelete frmDelete = new frmDelete();
             frmDelete.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetAllId getAllId = new GetAllId();
+            getAllId.ShowDialog();
+        }
+    }
+
+    public static class Global
+    {
+        public static string ipAdress = "http://192.168.1.142:8000";
     }
 }

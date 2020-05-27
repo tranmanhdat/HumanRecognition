@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,9 +21,15 @@ namespace HumanRecognition
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int id = 0;
-            if (!int.TryParse(txtID.Text, out id))
+            if (int.TryParse(txtID.Text, out id))
             {
-                // call delete here
+                var client = new RestClient(Global.ipAdress+"/del_person");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("id_person", id.ToString());
+                IRestResponse response = client.Execute(request);
+                MessageBox.Show(response.Content);
             }
         }
     }

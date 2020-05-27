@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -28,6 +29,7 @@ namespace HumanRecognition
 
         private void btnSelectimage_Click(object sender, EventArgs e)
         {
+            flowLayoutImages.Controls.Clear();
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter =
                 "Images (*.JPG;*.PNG;*.jpg;*.png)|*.JPG;*.PNG;*.jpg;*.png|" +
@@ -42,8 +44,8 @@ namespace HumanRecognition
                     {
                         imagePath.Add(file);
                         PictureBox pb = new PictureBox();
-                        pb.BackgroundImageLayout = ImageLayout.Stretch;
-                        pb.SizeMode = PictureBoxSizeMode.AutoSize;
+                        //pb.BackgroundImageLayout = ImageLayout.Center;
+                        pb.SizeMode = PictureBoxSizeMode.CenterImage;
                         Image loadedImage = Image.FromFile(file);
                         loadedImage = this.ResizeImage(loadedImage, 500, 500);
                         pb.Height = loadedImage.Height;
@@ -96,17 +98,20 @@ namespace HumanRecognition
 
         private void btnPredict_Click(object sender, EventArgs e)
         {
-            var client = new RestClient("http://192.168.1.109:8000/predict");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Content-Type", "multipart/form-data");
-            foreach(String path in imagePath)
-            {
-                request.AddFile("file", path);
-            }
+            //for (int i = 0; i <= 1000; i++)
+            //{
+         
+                var client = new RestClient(Global.ipAdress+"/predict");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "multipart/form-data");
+                foreach (String path in imagePath)
+                {
+                    request.AddFile("file", path);
+                }
             IRestResponse response = client.Execute(request);
             txbResult.Text = response.Content;
-            //dynamic stuff = JObject.Parse(response.Content);
+            
         }
     }
 }

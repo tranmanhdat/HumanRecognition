@@ -66,17 +66,18 @@
             // 
             this.txbResult.Enabled = false;
             this.txbResult.Location = new System.Drawing.Point(517, 57);
-            this.txbResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbResult.Margin = new System.Windows.Forms.Padding(2);
             this.txbResult.Multiline = true;
             this.txbResult.Name = "txbResult";
-            this.txbResult.Size = new System.Drawing.Size(275, 454);
+            this.txbResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txbResult.Size = new System.Drawing.Size(659, 454);
             this.txbResult.TabIndex = 3;
             // 
             // frmPredict
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 522);
+            this.ClientSize = new System.Drawing.Size(1187, 522);
             this.Controls.Add(this.txbResult);
             this.Controls.Add(this.btnPredict);
             this.Controls.Add(this.flowLayoutImages);
