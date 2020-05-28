@@ -44,6 +44,6 @@ namespace HumanRecognition
 
     public static class Global
     {
-        public static string ipAdress = "http://192.168.1.142:8000";
+        public static string ipAdress = "http://192.168.1.109:8000";
     }
 }
