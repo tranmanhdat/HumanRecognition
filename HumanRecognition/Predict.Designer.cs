@@ -40,7 +40,7 @@
             this.btnSelectimage.Name = "btnSelectimage";
             this.btnSelectimage.Size = new System.Drawing.Size(116, 39);
             this.btnSelectimage.TabIndex = 0;
-            this.btnSelectimage.Text = "Select image";
+            this.btnSelectimage.Text = "Chọn ảnh";
             this.btnSelectimage.UseVisualStyleBackColor = true;
             this.btnSelectimage.Click += new System.EventHandler(this.btnSelectimage_Click);
             // 
@@ -58,7 +58,7 @@
             this.btnPredict.Name = "btnPredict";
             this.btnPredict.Size = new System.Drawing.Size(116, 39);
             this.btnPredict.TabIndex = 2;
-            this.btnPredict.Text = "Predict";
+            this.btnPredict.Text = "Dự đoán";
             this.btnPredict.UseVisualStyleBackColor = true;
             this.btnPredict.Click += new System.EventHandler(this.btnPredict_Click);
             // 

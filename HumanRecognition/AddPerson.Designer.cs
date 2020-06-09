@@ -41,7 +41,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Select files";
+            this.button1.Text = "Chọn ảnh";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -74,9 +74,9 @@
             // 
             this.button2.Location = new System.Drawing.Point(15, 116);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
+            this.button2.Size = new System.Drawing.Size(147, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Insert to database";
+            this.button2.Text = "Thêm vào cơ sở dữ liệu";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -91,7 +91,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "AddPerson";
-            this.Text = "AddPerson";
+            this.Text = "Thêm người mới";
             this.ResumeLayout(false);
             this.PerformLayout();
 
